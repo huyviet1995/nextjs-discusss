@@ -70,8 +70,10 @@ export async function createTopic(
           _form: ["An error occurred"],
         },
       };
+
     }
   }
   revalidatePath(paths.home());
   redirect(paths.topicShow(topic.slug));
+  return { errors: {} };
 }

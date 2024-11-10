@@ -9,9 +9,10 @@ import {
 } from "@nextui-org/react";
 import { useActionState } from "react";
 import * as actions from "@/actions";
+import FormButton from "../common/form-button";
 
 export default function TopicCreateForm() {
-  const [formState, action] = useActionState(actions.createTopic, {
+  const [formState, action, isPending] = useActionState(actions.createTopic, {
     errors: { name: [], description: [] },
   });
   return (
@@ -44,8 +45,7 @@ export default function TopicCreateForm() {
               {formState.errors._form.join(", ")}
               </div>
             )}
-
-            <Button type="submit">Submit</Button>
+            <FormButton pending={isPending}>Submit</FormButton>
           </div>
         </form>
       </PopoverContent>
