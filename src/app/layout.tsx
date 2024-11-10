@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Header from "@/components/header";
 import "./globals.css";
 import Providers from "@/app/providers";
 
@@ -29,9 +30,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>
-          {children}
-        </Providers>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <Providers>
+            <Header />
+            {children}
+          </Providers>
+        </div>
       </body>
     </html>
   );

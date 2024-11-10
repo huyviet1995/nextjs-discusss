@@ -1,6 +1,6 @@
+"use server";
 import { Button } from "@nextui-org/react";
 import * as actions from "@/actions";
-import { auth } from "@/auth";
 import Profile from "@/components/profile";
 
 export default async function Home() {
@@ -12,7 +12,7 @@ export default async function Home() {
 
       <form action={actions.signOut}>
         <Button type="submit">Sign Out</Button>
-      </form> 
+      </form>
       <Profile />
     </div>
   );
