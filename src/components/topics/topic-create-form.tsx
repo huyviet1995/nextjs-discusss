@@ -28,7 +28,7 @@ export default function TopicCreateForm() {
               label="Name"
               labelPlacement="outside"
               placeholder="Name"
-              isInvalid={!!formState.errors.name}
+              isInvalid={!!formState?.errors?.name?.length}
               errorMessage={formState?.errors?.name?.join(", ")}
             />
             <Textarea
@@ -36,7 +36,7 @@ export default function TopicCreateForm() {
               label="Description"
               labelPlacement="outside"
               placeholder="Describe your topic"
-              isInvalid={!!formState.errors.description}
+              isInvalid={!!formState?.errors?.description?.length}
               errorMessage={formState?.errors?.description?.join(", ")}
             />
             {formState.errors._form && (

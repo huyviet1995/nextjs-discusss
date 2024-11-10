@@ -72,11 +72,6 @@ export async function createTopic(
       };
     }
   }
-
   revalidatePath(paths.home());
   redirect(paths.topicShow(topic.slug));
-
-  return {
-    errors: {},
-  };
 }
