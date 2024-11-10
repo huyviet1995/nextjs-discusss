@@ -14,7 +14,6 @@ export default function TopicCreateForm() {
   const [formState, action] = useActionState(actions.createTopic, {
     errors: { name: [], description: [] },
   });
-  console.log("🚀 ~ TopicCreateForm ~ formState:", formState)
   return (
     <Popover placement="left">
       <PopoverTrigger>
