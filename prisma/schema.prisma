@@ -57,6 +57,7 @@ model VerificationToken {
 model Topic {
   id          String @id @default(cuid())
   slug        String @unique
+  name        String 
   description String
   posts       Post[]
 

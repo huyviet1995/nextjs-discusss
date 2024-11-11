@@ -51,9 +51,11 @@ export async function createTopic(
 
   let topic: Topic;
   try {
+    const slug = result.data.name.toLowerCase().split(' ').join('-').replace(/-+$/, '');
     topic = await db.topic.create({
       data: {
-        slug: result.data.name,
+        slug,
+        name: result.data.name,
         description: result.data.description,
       }
     })
