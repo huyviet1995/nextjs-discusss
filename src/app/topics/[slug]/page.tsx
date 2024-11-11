@@ -1,13 +1,16 @@
+'use server'
 import PostCreateForm from "@/components/posts/post-create-form";
+import { db } from '@/db';
+
 interface TopicShowPageProps {
   params: {
     slug: string;
-    name: string;
   }
 }
 
-export default async function TopicShowPage({ params }: TopicShowPageProps) {
-  const { slug, name } = await params;
+export default async function TopicShowPage({ params }: TopicShowPageProps ) {
+  const { slug } = await params;
+  const name = await fetchNameBySlug(slug);
   return (
     <div className="grid grid-cols-4 gap-4 p-4">
       <div className="col-span-3">
@@ -21,4 +24,15 @@ export default async function TopicShowPage({ params }: TopicShowPageProps) {
     </div>
   )
 };
+
+// Define the fetchNameBySlug function
+async function fetchNameBySlug(slug: string): Promise<string> {
+  const topic = await db.topic.findFirst({
+    where: { slug }
+  })
+  if (!topic) {
+    throw 'Cannot find slug'
+  }
+  return topic.name;
+}
 
